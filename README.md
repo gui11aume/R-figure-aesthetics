@@ -67,3 +67,37 @@ showtext_end()
 dev.off()
 ```
 <img src="plot-2.png" alt="Plot #2" width="600"/>
+
+```R
+library(showtext)
+font_add(family="Avenir Medium", regular="Avenir-Medium.ttf")
+
+set.seed(123)
+x = c(3.5, 0.0, -3.5, -5.0, -3.5,  0.0,  3.5, 5.0) + rnorm(160)
+y = c(3.5, 5.0,  3.5,  0.0, -3.5, -5.0, -3.5, 0.0) + rnorm(160)
+
+color_blind_palette = c("#002620", "#6db6ff", "#009292", "#fe6db6",
+     "#feb5da", "#b5dafe", "#b68dff", "#9830b1")
+
+pdf("plot-3.pdf")
+showtext_begin()
+
+par(mar=c(3.1,3.1,0,0))
+
+plot(x, y, panel.first=grid(),
+     bty="n", ylab="", xlab="", xaxt="n", yaxt="n", type="n")
+points(x, y, pch=19, cex=.8, col=color_blind_palette)
+
+axis(side=1, col="gray30", cex.axis=.8, padj=-.9, col.axis="gray20")
+axis(side=2, col="gray30", cex.axis=.8, padj= .9, col.axis="gray20")
+title(xlab="x axis (unit)", line=2, col.lab="gray30", family="Avenir Medium")
+title(ylab="y axis (unit)", line=2, col.lab="gray30", family="Avenir Medium")
+
+legend(x="topright", inset=.01,
+     bg="white", box.col="gray50",
+     legend=1:8, col=color_blind_palette, pch=19, cex=.8)
+
+showtext_end()
+dev.off()
+```
+<img src="plot-3.png" alt="Plot #3" width="600"/>
