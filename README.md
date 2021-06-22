@@ -1,5 +1,5 @@
 # R-figure-aesthetics
-```
+```R
 set.seed(123)
 x = rnorm(20)
 
@@ -15,3 +15,4 @@ title(xlab="x value (unit)", line=2, col.lab="gray30")
 title(ylab="y value (unit)", line=2, col.lab="gray30")
 dev.off()
 ```
+<img src="plot-1.png" alt="Plot #1" width="600"/>
